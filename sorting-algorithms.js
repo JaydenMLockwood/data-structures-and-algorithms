@@ -79,5 +79,30 @@ function quickSort(arr){
     return arr;
 }
 
-console.log(quickSort(myArray));
+//counting sort
+function countingSort(arr){
+
+    let highest = 0;
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i] > highest){
+            highest = arr[i];
+        }
+    }
+
+    let countingArray = new Array(highest+1).fill(0);
+    for(let i = 0; i < arr.length; i++){
+        countingArray[arr[i]] += 1;
+    }
+
+    let newArray = [];
+    for(let i = 0; i < countingArray.length; i++){
+        while(countingArray[i] > 0){
+            newArray.push(i);
+            countingArray[i] = countingArray[i]-1;
+        }
+    }
+    return newArray;
+}
+
+console.log(countingSort(myArray));
 
