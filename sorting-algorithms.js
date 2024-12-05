@@ -134,5 +134,8 @@ function bogoSort(arr){
     return arr;
 }
 
-console.log(bogoSort(myArray));
+//miracle sort
+function miracleSort(arr){
+    return arr;
+}
 
