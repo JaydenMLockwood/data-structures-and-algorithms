@@ -48,7 +48,7 @@ function insertionSort(arr){
 }
 
 //quick sort
-function quickSort(arr){
+export function quickSort(arr){
     function partition(arr, low, high){
         let pivot = arr[high];
         let i = low - 1;
