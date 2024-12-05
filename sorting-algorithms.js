@@ -104,5 +104,35 @@ function countingSort(arr){
     return newArray;
 }
 
-console.log(countingSort(myArray));
+//bogo sort
+function bogoSort(arr){
+    let count = 0;
+    while(true){
+        count++;
+    //Fisher-Yates algoritm
+        for (let i = arr.length -1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i+1));
+            let k = arr[i];
+            arr[i] = arr[j];
+            arr[j] = k;
+        }
+
+        let sorted = true;
+        for(let j = 0; j < arr.length-1; j++){
+            if(arr[j] < arr[j+1]){
+                continue;
+            }else{
+                sorted = false;
+                break;
+            }
+        }
+        if(sorted){
+            break;
+        }
+    }
+    console.log(count);
+    return arr;
+}
+
+console.log(bogoSort(myArray));
 
