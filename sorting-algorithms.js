@@ -47,5 +47,37 @@ function insertionSort(arr){
     return arr;
 }
 
-console.log(insertionSort(myArray));
+//quick sort
+function quickSort(arr){
+    function partition(arr, low, high){
+        let pivot = arr[high];
+        let i = low - 1;
+
+        for(let j = low; j < high; j++){
+            if(arr[j] <= pivot){
+                i++;
+                let temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+        let temp = arr[i+1];
+        arr[i+1] = arr[high];
+        arr[high] = temp;
+        return i+1;
+    }
+
+    function sorting(arr, low, high){
+        if(low < high){
+            let pivotIndex = partition(arr,low,high);
+            sorting(arr,low,pivotIndex-1);
+            sorting(arr,pivotIndex+1,high);
+        }
+    }
+    sorting(arr, 0, arr.length-1);
+
+    return arr;
+}
+
+console.log(quickSort(myArray));
 
